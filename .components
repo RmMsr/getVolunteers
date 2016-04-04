@@ -1,0 +1,9 @@
+---
+:orm: datamapper
+:test: minitest
+:mock: none
+:script: none
+:renderer: liquid
+:stylesheet: none
+:namespace: GetVolunteers
+:migration_format: number
