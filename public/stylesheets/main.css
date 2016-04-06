@@ -1,0 +1,9 @@
+html {
+    font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans",
+        "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+}
+
+section#main {
+    max-width: 50rem;
+    margin: 0 auto;
+}

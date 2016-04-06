@@ -6,6 +6,10 @@ module GetVolunteers
 
     enable :sessions
 
+    get '/' do
+      partial 'example', layout: 'application', locals: { name: 'With<mark>up'}
+    end
+
     ##
     # Caching support.
     #
