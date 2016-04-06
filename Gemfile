@@ -9,6 +9,7 @@ ruby '2.3.0'
 # Server requirements
 # gem 'thin' # or mongrel
 # gem 'trinidad', :platform => 'jruby'
+gem 'puma', '~> 3.2.0'
 
 # Optional JSON codec (faster performance)
 # gem 'oj'
