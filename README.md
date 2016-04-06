@@ -18,3 +18,8 @@ State
 -----
 
 Not usable yet.
+
+License
+-------
+
+This is free and open software. See unlicense.org for details.
