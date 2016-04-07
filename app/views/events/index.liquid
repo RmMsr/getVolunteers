@@ -1,0 +1,8 @@
+<h2>{{ series_name }} upcoming events</h2>
+{% if events[0] %}
+<ul>
+    {% for event in events %}
+    <li>{{ event.start }}</li>
+    {% endfor %}
+</ul>
+{% endif %}

@@ -30,10 +30,6 @@ gem 'dm-aggregates'
 gem 'dm-types'
 gem 'dm-core'
 
-# Test requirements
-gem 'minitest', :require => 'minitest/autorun', :group => 'test'
-gem 'rack-test', :require => 'rack/test', :group => 'test'
-
 # Padrino Stable Gem
 gem 'padrino', '0.13.1'
 
@@ -44,3 +40,13 @@ gem 'padrino', '0.13.1'
 # %w(core support gen helpers cache mailer admin).each do |g|
 #   gem 'padrino-' + g, '0.13.1'
 # end
+
+# Debugging
+gem 'pry', group: [:develop, :test]
+
+# Testing
+group :test do
+  gem 'minitest', require: 'minitest/autorun'
+  gem 'minitest-reporters', require: 'minitest/reporters'
+  gem 'rack-test', require: 'rack/test'
+end

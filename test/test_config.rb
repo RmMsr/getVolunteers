@@ -1,5 +1,21 @@
 RACK_ENV = 'test' unless defined?(RACK_ENV)
-require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
+
+# Hide gem warnings without side effects
+Proc.new do
+  verbose = $VERBOSE
+  $VERBOSE = nil
+  require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
+  $VERBOSE = verbose
+end.call
+
+# Configure Test output
+require 'minitest/reporters'
+MiniTest::Reporters.use!
+
+# Reset Database
+DataMapper.repository.auto_migrate!
+
+# Load Application helpers
 Dir[File.expand_path(File.dirname(__FILE__) + "/../app/helpers/**/*.rb")].each(&method(:require))
 
 class MiniTest::Spec
