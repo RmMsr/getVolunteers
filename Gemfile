@@ -19,7 +19,7 @@ gem 'rake'
 
 # Component requirements
 gem 'liquify'
-gem 'liquid', '= 2.1.2'
+gem 'liquid'
 gem 'dm-sqlite-adapter'
 gem 'dm-validations'
 gem 'dm-timestamps'
