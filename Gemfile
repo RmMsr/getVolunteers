@@ -18,6 +18,7 @@ gem 'puma', '~> 3.2.0'
 gem 'rake'
 
 # Component requirements
+gem 'bcrypt'
 gem 'liquify'
 gem 'liquid'
 gem 'dm-sqlite-adapter'
