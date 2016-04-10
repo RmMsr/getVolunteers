@@ -2,11 +2,16 @@ require File.expand_path(File.dirname(__FILE__) + '/../../test_config.rb')
 
 describe "Events Controller" do
   describe 'index' do
-    it 'get events' do
+    it 'displays series information' do
       Series.create!(slug: 'a_series', name: 'A Series')
       get '/a_series'
       last_response.must_be :ok?
       last_response.body.must_match 'A Series'
+    end
+
+    it 'returns file not found for unknown slug' do
+      get '/unknown_series'
+      last_response.must_be :not_found?
     end
   end
 

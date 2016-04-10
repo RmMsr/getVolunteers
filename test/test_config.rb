@@ -15,7 +15,8 @@ MiniTest::Reporters.use!
 # Reset Database
 DataMapper.repository.auto_migrate!
 
-# Load Application helpers
+# Load Application presenters and helpers
+Dir[File.expand_path(File.dirname(__FILE__) + "/../app/presenters/**/*.rb")].each(&method(:require))
 Dir[File.expand_path(File.dirname(__FILE__) + "/../app/helpers/**/*.rb")].each(&method(:require))
 
 class MiniTest::Spec

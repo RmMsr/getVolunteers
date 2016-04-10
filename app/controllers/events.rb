@@ -1,7 +1,12 @@
 GetVolunteers::App.controllers :events do
   get :index, map: ':slug' do
     series = Series.first slug: params[:slug]
-    values = {series_name: series.name, events: series.events}
+    not_found unless series
+
+    values = {
+        series_name: series.name,
+        future_events: series.future_events.map { |e| EventDrop.new(e) }
+    }
     render 'events/index', layout: true, locals: values
   end
 

@@ -4,6 +4,8 @@ module GetVolunteers
     register Padrino::Mailer
     register Padrino::Helpers
 
+    prerequisites << Padrino.root('app/presenters/**/*.rb')
+
     enable :sessions
 
     get '/' do

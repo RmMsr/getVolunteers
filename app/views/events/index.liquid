@@ -1,8 +1,13 @@
 <h2>{{ series_name }} upcoming events</h2>
-{% if events[0] %}
+{% if future_events[0] %}
+<p>The next 5 events</p>
 <ul>
-    {% for event in events %}
-    <li>{{ event.start }}</li>
+    {% for event in future_events %}
+    <li class="event-info">
+        <span class="start-time">{{ event.start }}</span>
+        <span class="duration-time">{{ event.duration_in_words }}</span>
+        <img src="/{{ event.series }}/{{ event.id }}/assignments.svg" class="badge">
+    </li>
     {% endfor %}
 </ul>
 {% endif %}

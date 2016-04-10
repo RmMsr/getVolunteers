@@ -7,3 +7,16 @@ section#main {
     max-width: 50rem;
     margin: 0 auto;
 }
+
+img.badge {
+    vertical-align: middle;
+}
+
+li.event-info {
+    line-height: 1.4;
+}
+
+li.event-info .duration-time {
+    color: #777777;
+    font-weight: 200;
+}
