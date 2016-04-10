@@ -5,12 +5,19 @@
 #   name = shell.ask("What's your name?")
 #   shell.say name
 #
-email     = shell.ask "Which email do you want use for logging into admin?"
-password  = shell.ask "Tell me the password to use:", :echo => false
+
+email = ENV['ADMIN_EMAIL'] || shell.ask('Which email do you want use for logging into admin?')
+password  = ENV['ADMIN_PASSWORD'] || shell.ask('Tell me the password to use:', :echo => false)
 
 shell.say ""
 
-account = Account.new(:email => email, :name => "Foo", :surname => "Bar", :password => password, :password_confirmation => password, :role => "admin")
+account = Account.new(
+    :email => email,
+    :name => "Foo",
+    :surname => "Bar",
+    :password => password,
+    :password_confirmation => password,
+    :role => "admin")
 
 if account.valid?
   account.save
