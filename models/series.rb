@@ -6,7 +6,7 @@ class Series
   property :name, String
   property :slug, String
 
-  def events
-    Event.all(series: slug)
+  def future_events
+    Event.all(series: slug, :finish.gte => Time.now)
   end
 end
