@@ -8,6 +8,7 @@ module GetVolunteers
 
     enable :sessions
 
+    # Root page
     get '/' do
       render 'home', layout: true
     end
