@@ -18,4 +18,8 @@ describe SeriesDrop do
   it 'exposes name' do
     @drop.name.must_equal 'A Series'
   end
+
+  it 'exposes slug' do
+    @drop.slug.must_equal 'a_series'
+  end
 end

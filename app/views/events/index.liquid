@@ -1,5 +1,5 @@
 <section>
-    <h1>{{ series.name }} upcoming events</h1>
+    <h1>{{ series.name | escape }} upcoming events</h1>
     {% if future_events[0] %}
     <p>The next 5 events</p>
     <ul>

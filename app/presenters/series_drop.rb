@@ -6,4 +6,8 @@ class SeriesDrop < Liquid::Drop
   def name
     @series.name
   end
+
+  def slug
+    @series.slug
+  end
 end
