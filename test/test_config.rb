@@ -1,10 +1,20 @@
 RACK_ENV = 'test' unless defined?(RACK_ENV)
 
+require 'simplecov'
+SimpleCov.root(File.dirname(__FILE__) + '/../')
+SimpleCov.start do
+  add_group 'Models', 'models'
+  add_group 'Presenters', 'app/presenters'
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Helpers', 'app/helpers'
+  add_filter 'test/'
+end
+
 # Hide gem warnings without side effects
 Proc.new do
   verbose = $VERBOSE
   $VERBOSE = nil
-  require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
+  require File.expand_path(File.dirname(__FILE__) + '/../config/boot')
   $VERBOSE = verbose
 end.call
 
