@@ -32,6 +32,10 @@ describe EventDrop do
     @drop.start_short.must_equal '01 Jan 06:30'
   end
 
+  it 'exposes start date' do
+    @drop.start_date.must_equal 'January 01, 2000'
+  end
+
   it 'exposes finish time' do
     @drop.finish.must_equal 'January 01, 2000 08:30'
   end

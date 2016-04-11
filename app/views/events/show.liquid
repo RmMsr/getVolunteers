@@ -1,4 +1,16 @@
-<h2>{{ series.name }} on {{ event.start }}</h2>
-<p>Finish: {{ event.finish }}</p>
-<p>Wee need at least {{ event.volunteers_goal }} volunteers. Currently
-{{ event.volunteers_current }} have joined.</p>
+<section>
+    <h1>
+        <a href="/{{ series.slug }}">{{ series.name }}</a>
+        on {{ event.start_date }}</h1>
+    <p>Start: {{ event.start }}<br/>Finish: {{ event.finish }}</p>
+    <p>Wee need at least {{ event.volunteers_goal }} volunteers. Currently
+        {{ event.volunteers_current }} have joined.</p>
+</section>
+<section>
+    <h2>Become a volunteer</h2>
+
+    <form>
+        <input>
+        <input type="submit">
+    </form>
+</section>

@@ -17,6 +17,10 @@ class EventDrop < Liquid::Drop
     I18n.localize(@event.start, format: :short) if @event.start
   end
 
+  def start_date
+    I18n.localize(@event.start.to_date, format: :long) if @event.start
+  end
+
   def finish
     I18n.localize(@event.finish, format: :long) if @event.finish
   end

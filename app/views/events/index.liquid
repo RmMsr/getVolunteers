@@ -1,13 +1,18 @@
-<h2>{{ series.name }} upcoming events</h2>
-{% if future_events[0] %}
-<p>The next 5 events</p>
-<ul>
-    {% for event in future_events %}
-    <li class="event-info">
-        <span class="start-time">{{ event.start_short }}</span>
-        <span class="duration-time">{{ event.duration_in_words }}</span>
-        <img src="/{{ event.series }}/{{ event.id }}/assignments.svg" class="badge">
-    </li>
-    {% endfor %}
-</ul>
-{% endif %}
+<section>
+    <h1>{{ series.name }} upcoming events</h1>
+    {% if future_events[0] %}
+    <p>The next 5 events</p>
+    <ul>
+        {% for event in future_events %}
+        <li class="event-info">
+            <a href="/{{ event.series }}/{{ event.id }}" class="section">
+                <span class="start-time">{{ event.start_short }}</span>
+                <span class="duration-time">{{ event.duration_in_words }}</span>
+                <img src="/{{ event.series }}/{{ event.id }}/assignments.svg"
+                     class="badge">
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</section>
