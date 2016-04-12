@@ -10,11 +10,24 @@ describe 'Series Model' do
   end
 
   it 'knows future events' do
-    series = Series.new slug: 'some_series'
-    event_a = Event.create!(series: 'some_series', finish: (Time.now + 10))
-    event_b = Event.create!(series: 'some_series', finish: (Time.now + 10 * 60 * 60 * 24))
-    event_c = Event.create!(series: 'some_series', finish: (Time.now - 10))
-    event_d = Event.create!(series: 'other_series', finish: (Time.now + 10))
+    series = Series.new slug: 'some-series'
+    now = Time.now
+    event_a = Event.create(
+        series: 'some-series',
+        start: now - 1,
+        finish: (now + 10))
+    event_b = Event.create(
+        series: 'some-series',
+        start: now - 1,
+        finish: (now + 10 * 60 * 60 * 24))
+    event_c = Event.create(
+        series: 'some-series',
+        start: now - 1,
+        finish: (now - 10))
+    event_d = Event.create(
+        series: 'other_series',
+        start: now - 1,
+        finish: (now + 10))
     series.future_events.must_include event_a
     series.future_events.must_include event_b
     series.future_events.wont_include event_c
