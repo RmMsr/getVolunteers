@@ -43,9 +43,9 @@ describe 'Events Controller' do
     end
 
     it 'returns file not found for unknown Series slug' do
-      Series.create(slug: 'a_slug')
-      event = Event.create(series: 'a_slug')
-      get "/unknown_series/#{event.id + 1}"
+      Series.create(slug: 'a-slug')
+      event = Event.create(series: 'a-slug', start: Time.now, finish: Time.now)
+      get "/unknown_series/#{event.id}"
       last_response.must_be :not_found?
     end
   end

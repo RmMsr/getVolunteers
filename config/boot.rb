@@ -44,6 +44,7 @@ end
 # Add your after (RE)load hooks here
 #
 Padrino.after_load do
+  DataMapper::Model.raise_on_save_failure = true
   DataMapper.finalize
 end
 

@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../../test_config.rb')
 
 describe SeriesDrop do
   before do
-    @series = Series.new(name: 'A Series', slug: 'a_series')
+    @series = Series.new(name: 'A Series', slug: 'a-series')
     @drop = SeriesDrop.new(@series)
   end
 
@@ -20,6 +20,6 @@ describe SeriesDrop do
   end
 
   it 'exposes slug' do
-    @drop.slug.must_equal 'a_series'
+    @drop.slug.must_equal 'a-series'
   end
 end

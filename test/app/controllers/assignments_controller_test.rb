@@ -2,8 +2,11 @@ require File.expand_path(File.dirname(__FILE__) + '/../../test_config.rb')
 
 describe 'Assignments Controller' do
   before do
-    @series = Series.create(slug: 'some_series')
-    @event = Event.create(series: @series.slug)
+    @series = Series.create(slug: 'some-series')
+    @event = Event.create(
+        series: @series.slug,
+        start: Time.now,
+        finish: Time.now)
   end
 
   describe 'status' do
@@ -32,7 +35,7 @@ describe 'Assignments Controller' do
     end
 
     it 'responds with not found for incorrect series' do
-      get "/other_series/#{@event.id}/status.svg"
+      get "/other-series/#{@event.id}/status.svg"
       last_response.must_be :not_found?
     end
 
