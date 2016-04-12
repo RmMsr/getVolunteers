@@ -23,13 +23,4 @@ GetVolunteers::App.controllers :events do
     }
     render 'show', layout: true, locals: values
   end
-
-  post :assignment, map: ':slug/:id/assignments' do
-
-  end
-
-  get :assignments, map: ':slug/:id/assignments', provides: %i{png svg} do
-    not_found unless params[:format]
-    redirect to("https://img.shields.io/badge/mentors-needed-red.#{params[:format]}"), 307
-  end
 end
