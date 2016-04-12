@@ -21,7 +21,7 @@ describe EventDrop do
     drop.duration_in_words.must_equal 'less than a minute'
     drop.series.must_be_nil
     drop.volunteers_goal.must_be_nil
-    drop.volunteers_current.must_be_nil
+    drop.volunteers_current.must_equal 0
   end
 
   it 'exposes start time' do
