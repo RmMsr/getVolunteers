@@ -3,9 +3,17 @@
 module GetVolunteers
   class App
     module EventsHelper
-      # def simple_helper_method
-      # ...
-      # end
+      def series
+        @_series ||= Series.first slug: params[:series_slug]
+      end
+
+      def event
+        @_event ||= if params[:id] == 'next'
+                      Event.all(series: params[:series_slug]).next
+                    else
+                      Event.first(series: params[:series_slug], id: params[:id])
+                    end
+      end
     end
 
     helpers EventsHelper

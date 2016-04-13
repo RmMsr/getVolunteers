@@ -6,6 +6,6 @@ class Series
   property :slug, Slug
 
   def future_events
-    Event.all(series: slug, :finish.gte => Time.now)
+    Event.future.all(series: slug)
   end
 end

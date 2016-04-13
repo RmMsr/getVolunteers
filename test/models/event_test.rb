@@ -39,4 +39,23 @@ describe 'Event Model' do
       event.must_be :volunteers_reached?
     end
   end
+
+  it 'future returns not finished events' do
+    events = [
+        Event.create(start: Time.now - 90, finish: Time.now - 10),
+        Event.create(start: Time.now + 30, finish: Time.now + 90),
+        Event.create(start: Time.now - 10, finish: Time.now + 10)
+    ]
+    Event.future.must_include events[1]
+    Event.future.must_include events[2]
+  end
+
+  it 'next returns closest not finished event' do
+    events = [
+        Event.create(start: Time.now - 90, finish: Time.now - 10),
+        Event.create(start: Time.now + 30, finish: Time.now + 90),
+        Event.create(start: Time.now - 10, finish: Time.now + 10)
+    ]
+    Event.next.must_equal events[2]
+  end
 end

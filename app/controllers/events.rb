@@ -1,6 +1,5 @@
 GetVolunteers::App.controllers :events do
-  get :index, map: ':slug' do
-    series = Series.first slug: params[:slug]
+  get :index, map: ':series_slug' do
     not_found unless series
 
     values = {
@@ -10,11 +9,8 @@ GetVolunteers::App.controllers :events do
     render 'index', layout: true, locals: values
   end
 
-  get :show, map: ':slug/:id' do
-    series = Series.first slug: params[:slug]
+  get :show, map: ':series_slug/:id' do
     not_found unless series
-
-    event = Event.first id: params[:id]
     not_found unless event
 
     values = {

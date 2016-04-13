@@ -1,6 +1,5 @@
 GetVolunteers::App.controllers :assignments do
   get :status, map: ':series_slug/:id/status', provides: %i{png svg} do
-    event = Event.first(series: params[:series_slug], id: params[:id])
     not_found unless event && params[:format]
 
     badge = EventStatusBadge.new(event)

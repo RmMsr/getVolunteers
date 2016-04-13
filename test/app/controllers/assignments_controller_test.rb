@@ -51,5 +51,11 @@ describe 'Assignments Controller' do
       last_response.status.must_equal 307
       last_response.location.must_equal 'http://example.org'
     end
+
+    it 'returns the closest next event via id next' do
+      Event.create(start: Time.now, finish: Time.now + 10)
+      get "#{@series.slug}/next/status.png"
+      last_response.must_be :redirect?
+    end
   end
 end
