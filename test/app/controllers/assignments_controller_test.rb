@@ -13,15 +13,13 @@ describe 'Assignments Controller' do
     it 'should redirect to a svg image' do
       get "/#{@series.slug}/#{@event.id}/status.svg"
       last_response.status.must_equal 307, 'No Temporary redirect'
-      last_response.location.must_equal(
-          'https://img.shields.io/badge/mentors-needed-red.svg')
+      last_response.location.must_match %r{.svg$}
     end
 
     it 'should redirect to a png image' do
       get "/#{@series.slug}/#{@event.id}/status.png"
       last_response.status.must_equal 307, 'No Temporary redirect'
-      last_response.location.must_equal(
-          'https://img.shields.io/badge/mentors-needed-red.png')
+      last_response.location.must_match %r{.png$}
     end
 
     it 'rejects unknown extension' do
@@ -42,6 +40,16 @@ describe 'Assignments Controller' do
     it 'responds with not found for incorrect event' do
       get "/#{@series.slug}/9999/status.svg"
       last_response.must_be :not_found?
+    end
+
+    it 'redirects to shields.io badge url for png' do
+      badge = Minitest::Mock.new
+      badge.expect :shields_url, 'http://example.org', ['png']
+      EventStatusBadge.stub :new, badge, 'png' do
+        get "#{@series.slug}/#{@event.id}/status.png"
+      end
+      last_response.status.must_equal 307
+      last_response.location.must_equal 'http://example.org'
     end
   end
 end

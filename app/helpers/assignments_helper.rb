@@ -3,9 +3,6 @@
 module GetVolunteers
   class App
     module AssignmentsHelper
-      # def simple_helper_method
-      # ...
-      # end
     end
 
     helpers AssignmentsHelper

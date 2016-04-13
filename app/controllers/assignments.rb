@@ -3,10 +3,8 @@ GetVolunteers::App.controllers :assignments do
     event = Event.first(series: params[:series_slug], id: params[:id])
     not_found unless event && params[:format]
 
-    redirect(
-      to(
-        "https://img.shields.io/badge/mentors-needed-red.#{params[:format]}"),
-      307)
+    badge = EventStatusBadge.new(event)
+    redirect to(badge.shields_url(params[:format])), 307
   end
 
   post :assignment, map: ':series_slug/:id/assignments' do
