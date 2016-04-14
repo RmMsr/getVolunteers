@@ -16,7 +16,7 @@ GetVolunteers::Admin.controllers :events do
     if @event.save
       @title = pat(:create_title, model: "event #{@event.id}")
       flash[:success] = pat(:create_success, model: 'Event')
-      if params[:save_and_continue] then
+      if params[:save_and_continue]
         redirect(url(:events, :index))
       else
         redirect(url(:events, :edit, id: @event.id))

@@ -3,8 +3,8 @@
 # You can mount additional applications using any of these commands below:
 #
 #   Padrino.mount('blog').to('/blog')
-#   Padrino.mount('blog', :app_class => 'BlogApp').to('/blog')
-#   Padrino.mount('blog', :app_file =>  'path/to/blog/app.rb').to('/blog')
+#   Padrino.mount('blog', app_class: 'BlogApp').to('/blog')
+#   Padrino.mount('blog', app_file:  'path/to/blog/app.rb').to('/blog')
 #
 # You can also map apps to a specified host:
 #
@@ -18,7 +18,7 @@
 # By default, this file mounts the primary app which was generated with this project.
 # However, the mounted app can be modified as needed:
 #
-#   Padrino.mount('AppName', :app_file => 'path/to/file', :app_class => 'BlogApp').to('/')
+#   Padrino.mount('AppName', app_file: 'path/to/file', app_class: 'BlogApp').to('/')
 #
 
 ##
@@ -28,11 +28,11 @@
 Padrino.configure_apps do
   # enable :sessions
   set :session_secret, '107fa36b7c3900d23ee453848cc27485195d3298b3e5e5301612c980fba45215'
-  set :protection, :except => :path_traversal
+  set :protection, except: :path_traversal
   set :protect_from_csrf, true
 end
 
 # Mounts the core application for this project
 
-Padrino.mount("GetVolunteers::Admin", :app_file => Padrino.root('admin/app.rb')).to("/admin")
-Padrino.mount('GetVolunteers::App', :app_file => Padrino.root('app/app.rb')).to('/')
+Padrino.mount('GetVolunteers::Admin', app_file: Padrino.root('admin/app.rb')).to('/admin')
+Padrino.mount('GetVolunteers::App', app_file: Padrino.root('app/app.rb')).to('/')

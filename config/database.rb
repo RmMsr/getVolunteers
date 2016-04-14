@@ -33,8 +33,6 @@
 DataMapper.logger = logger
 DataMapper::Property::String.length(255)
 
-case Padrino.env
-  when :development then DataMapper.setup(:default, "sqlite3://" + Padrino.root('db', "get_volunteers_development.db"))
-  when :production  then DataMapper.setup(:default, "sqlite3://" + Padrino.root('db', "get_volunteers_production.db"))
-  when :test        then DataMapper.setup(:default, "sqlite3://" + Padrino.root('db', "get_volunteers_test.db"))
-end
+DataMapper.setup(
+    :default,
+    "sqlite3://#{Padrino.root('db', "get_volunteers_#{Padrino.env}.db")}")

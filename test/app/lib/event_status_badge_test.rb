@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../../test_config.rb')
 describe EventStatusBadge do
   describe 'shields_url' do
     before do
-      @event = Minitest::Mock.new()
+      @event = Minitest::Mock.new
     end
 
     it 'returns shields.io url' do

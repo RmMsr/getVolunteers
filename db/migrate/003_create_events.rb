@@ -1,7 +1,7 @@
 migration 3, :create_events do
   up do
     create_table :events do
-      column :id, Integer, :serial => true
+      column :id, Integer, serial: true
       column :start, DataMapper::Property::DateTime
       column :finish, DataMapper::Property::DateTime
       column :series, DataMapper::Property::Slug
