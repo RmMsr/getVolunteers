@@ -34,6 +34,11 @@ Bundler.require(:default, RACK_ENV)
 #   include Padrino::Helpers::TranslationHelpers
 # end
 
+Padrino::Logger::Config[:production] = {
+    log_level: (ENV['LOG_LEVEL'] || 'info').to_sym,
+    stream: :stdout
+}
+
 ##
 # Add your before (RE)load hooks here
 #
@@ -46,6 +51,12 @@ end
 Padrino.after_load do
   DataMapper::Model.raise_on_save_failure = true
   DataMapper.finalize
+
+  # Extra dependencies
+  Padrino.require_dependencies Padrino.root('app/presenters/**/*.rb')
+
+  # Extra auto load path for development
+  GetVolunteers::App.prerequisites << Padrino.root('app/presenters/**/*.rb')
 end
 
 Padrino.load!

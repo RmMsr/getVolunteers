@@ -26,7 +26,7 @@ gem 'dm-core'
 gem 'padrino', '0.13.1'
 
 # Debugging
-gem 'pry', group: [:develop, :test]
+gem 'pry', group: [:development, :test]
 
 # Testing
 group :test do
