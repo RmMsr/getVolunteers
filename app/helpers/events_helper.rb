@@ -3,15 +3,19 @@
 module GetVolunteers
   class App
     module EventsHelper
+      # Loads the series as specified in the request URL as /:series_slug
       def series
         @_series ||= Series.first slug: params[:series_slug]
       end
 
+      # Loads the event specified in the request URL as /:series_slug/:event_id
       def event
-        @_event ||= if params[:id] == 'next'
+        @_event ||= if params[:event_id] == 'next'
                       Event.all(series: params[:series_slug]).next
                     else
-                      Event.first(series: params[:series_slug], id: params[:id])
+                      Event.first(
+                          series: params[:series_slug],
+                          id: params[:event_id])
                     end
       end
     end
