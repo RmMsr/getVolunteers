@@ -1,10 +1,10 @@
 GetVolunteers::Admin.controllers :sessions do
   get :new do
-    render "/sessions/new", nil, :layout => false
+    render '/sessions/new', nil, layout: false
   end
 
   post :create do
-    if account = Account.authenticate(params[:email], params[:password])
+    if (account = Account.authenticate(params[:email], params[:password]))
       set_current_account(account)
       redirect url(:base, :index)
     elsif Padrino.env == :development && params[:bypass]
@@ -14,7 +14,7 @@ GetVolunteers::Admin.controllers :sessions do
     else
       params[:email] = h(params[:email])
       flash.now[:error] = pat('login.error')
-      render "/sessions/new", nil, :layout => false
+      render '/sessions/new', nil, layout: false
     end
   end
 

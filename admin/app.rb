@@ -33,6 +33,8 @@ module GetVolunteers
     end
 
     access_control.roles_for :admin do |role|
+      role.project_module :series, '/series'
+      role.project_module :events, '/events'
       role.project_module :accounts, '/accounts'
     end
 

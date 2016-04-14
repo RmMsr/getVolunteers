@@ -1,0 +1,49 @@
+<% error = @event.errors.key?(:start) && @event.errors[:start].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :start, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :start, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:start) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @event.errors.key?(:finish) && @event.errors[:finish].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :finish, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :finish, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:finish) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @event.errors.key?(:series) && @event.errors[:series].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :series, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :series, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:series) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @event.errors.key?(:volunteers_goal) && @event.errors[:volunteers_goal].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :volunteers_goal, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :volunteers_goal, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:volunteers_goal) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @event.errors.key?(:volunteers_current) && @event.errors[:volunteers_current].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :volunteers_current, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :volunteers_current, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:volunteers_current) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:events, :index), :class => 'btn btn-default' %>
+</div>
