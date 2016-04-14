@@ -35,4 +35,4 @@ DataMapper::Property::String.length(255)
 
 DataMapper.setup(
     :default,
-    "sqlite3://#{Padrino.root('db', "get_volunteers_#{Padrino.env}.db")}")
+    "sqlite3://#{Padrino.root('data', Padrino.env.to_s, 'get_volunteers.db')}")
