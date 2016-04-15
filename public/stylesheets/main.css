@@ -54,24 +54,24 @@ main section {
 
 /* Events */
 
-.event-list {
+.event-list li a {
+    display: inline-block;
+    width: 100%;
+}
+
+.event-info {
     display: flex;
     flex-wrap: wrap;
 }
 
-.event-list .event-info {
-    flex: 1 0 45%;
+.event-info .label {
+    flex: 2 0 9em;
     line-height: 1.7;
 }
 
-.event-list .event-info a:hover {
-    color: #3976a8;
+.event-info .badge {
+    flex: 1 0 6em;
 }
-
-.event-list .badge {
-    flex: 1 0 25%;
-}
-
-.event-list .badge img {
+.event-info .badge img {
     height: 1.4em;
 }

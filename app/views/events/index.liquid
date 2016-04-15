@@ -4,15 +4,19 @@
     <p>The next 5 events</p>
     <ul class="event-list">
         {% for event in future_events %}
-            <li class="event-info">
-                <a href="/{{ event.series }}/{{ event.id }}" class="section">
-                    <span class="start-time">{{ event.start_short }}</span>
-                    <span class="duration-time">(for {{ event.duration_in_words }})</span>
-                </a>
-            </li>
-            <div class="badge">
-                <img src="/{{ event.series }}/{{ event.id }}/status.svg">
-            </div>
+        <li>
+            <a href="/{{ event.series }}/{{ event.id }}">
+                <div class="event-info">
+                    <div class="label">
+                        {{ event.start_short }}
+                        (for {{ event.duration_in_words }})
+                    </div>
+                    <div class="badge">
+                        <img src="/{{ event.series }}/{{ event.id }}/status.svg">
+                    </div>
+                </div>
+            </a>
+        </li>
         {% endfor %}
     </ul>
     {% endif %}
