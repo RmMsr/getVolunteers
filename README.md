@@ -1,4 +1,4 @@
-GetVolunteers
+getVolunteers
 =============
 
 Enables you to show on any website if you need volunteers right now.
@@ -17,7 +17,7 @@ image a new site will open where the user can sign up as new volunteer.
 State
 -----
 
-Minimal functionality is implemented. Users can not yet sogn up as volunteers.
+Minimal functionality is implemented. Users can not yet sign up as volunteers.
 For now the Admins needs to manually update the volunteer count.
 
 Demo
@@ -25,6 +25,28 @@ Demo
 
 The latest version is available on 
 [volunteers.gotocloud.net](http://volunteers.gotocloud.net/test).
+
+Setup
+-----
+
+Run getVolunteers locally:
+
+    git clone git@github.com:RmMsr/getVolunteers.git
+    cd getVolunteers
+    bundle install
+    bundle exec rake dm:setup
+    bin/get-volunteers
+    # Browse to http://localhost:3000/
+
+Run as docker container:
+
+    docker pull rmmsr/get-volunteers
+    docker run --name get-volunteers -p 3000:80 rmmsr/get-volunteers
+    docker exec -it get-volunteers bundle exec rake dm:setup
+    # Browse to http://YOUR-DOCKER-HOST:3000/
+
+Please note: If you use the default setup, the sqlite database runs inside the 
+docker container and data will be lost once the container removed.
 
 License
 -------
