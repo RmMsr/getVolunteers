@@ -77,6 +77,6 @@ main section {
     flex: 1 0 6em;
 }
 
-.event-info .badge img {
+.badge img {
     height: 1.5em;
 }

@@ -3,6 +3,10 @@
         ‘<a href="/{{ series.slug }}">{{ series.name | escape }}</a>’
         on {{ event.start_date }}</h1>
     <p>Start: {{ event.start }}<br/>Finish: {{ event.finish }}</p>
+    <div class="badge">
+        <img alt="Volunteer status"
+             src="/{{ event.series }}/{{ event.id }}/status.svg">
+    </div>
     <p>Wee need at least {{ event.volunteers_goal }} volunteers. Currently
         {{ event.volunteers_current }} have joined.</p>
 </section>
