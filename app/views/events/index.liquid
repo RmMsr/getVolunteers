@@ -5,7 +5,7 @@
     <ul class="event-list">
         {% for event in future_events %}
         <li>
-            <a href="/{{ event.series }}/{{ event.id }}">
+            <a href="/{{ event.series }}/{{ event.id }}" class="section">
                 <div class="event-info">
                     <div class="label">
                         {{ event.start_short }}
