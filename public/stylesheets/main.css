@@ -5,7 +5,7 @@ html {
     "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
 }
 
-body > main > * {
+body > main {
     margin: 0 auto;
     max-width: 50rem;
 }
@@ -33,7 +33,6 @@ a.section {
 
 #page-head {
     color: #dc8a6f;
-    margin-bottom: 2rem;
     outline-style: dashed;
     padding: 0 1rem;
 }
@@ -50,7 +49,7 @@ a.section {
 /* Main */
 
 main section {
-    padding: 0.2rem 1rem;
+    margin: 7% 1rem;
 }
 
 /* Events */
