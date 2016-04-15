@@ -1,6 +1,6 @@
 <section>
     <h1>
-        <a href="/{{ series.slug }}">{{ series.name | escape }}</a>
+        ‘<a href="/{{ series.slug }}">{{ series.name | escape }}</a>’
         on {{ event.start_date }}</h1>
     <p>Start: {{ event.start }}<br/>Finish: {{ event.finish }}</p>
     <p>Wee need at least {{ event.volunteers_goal }} volunteers. Currently

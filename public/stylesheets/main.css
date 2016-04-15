@@ -25,10 +25,6 @@ a {
     text-decoration: inherit;
 }
 
-img.badge {
-    vertical-align: middle;
-}
-
 a.section {
     color: inherit;
 }
@@ -37,14 +33,18 @@ a.section {
 
 #page-head {
     color: #dc8a6f;
+    margin-bottom: 2rem;
+    outline-style: dashed;
+    padding: 0 1rem;
+}
+
+#page-head a {
+    color: inherit;
     font-size: 120%;
     font-style: italic;
     font-weight: 900;
     letter-spacing: -0.04em;
     line-height: 3;
-    margin-bottom: 2rem;
-    outline-style: dashed;
-    padding: 0 1rem;
 }
 
 /* Main */
@@ -55,14 +55,24 @@ main section {
 
 /* Events */
 
-li.event-info {
+.event-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.event-list .event-info {
+    flex: 1 0 45%;
     line-height: 1.7;
 }
 
-li.event-info a:hover {
+.event-list .event-info a:hover {
     color: #3976a8;
 }
 
-li.event-info .duration-time {
-    font-weight: 200;
+.event-list .badge {
+    flex: 1 0 25%;
+}
+
+.event-list .badge img {
+    height: 1.4em;
 }

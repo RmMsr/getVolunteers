@@ -1,17 +1,18 @@
 <section>
-    <h1>{{ series.name | escape }} upcoming events</h1>
+    <h1>‘{{ series.name | escape }}’ upcoming events</h1>
     {% if future_events[0] %}
     <p>The next 5 events</p>
-    <ul>
+    <ul class="event-list">
         {% for event in future_events %}
-        <li class="event-info">
-            <a href="/{{ event.series }}/{{ event.id }}" class="section">
-                <span class="start-time">{{ event.start_short }}</span>
-                <span class="duration-time">{{ event.duration_in_words }}</span>
-                <img src="/{{ event.series }}/{{ event.id }}/status.svg"
-                     class="badge">
-            </a>
-        </li>
+            <li class="event-info">
+                <a href="/{{ event.series }}/{{ event.id }}" class="section">
+                    <span class="start-time">{{ event.start_short }}</span>
+                    <span class="duration-time">(for {{ event.duration_in_words }})</span>
+                </a>
+            </li>
+            <div class="badge">
+                <img src="/{{ event.series }}/{{ event.id }}/status.svg">
+            </div>
         {% endfor %}
     </ul>
     {% endif %}
