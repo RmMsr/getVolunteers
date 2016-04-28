@@ -1,6 +1,6 @@
 <section>
     <h1>‘{{ series.name | escape }}’ upcoming events</h1>
-    {% if future_events[0] %}
+    {% if future_events.size > 0 %}
     <p>The next 5 events</p>
     <ul class="event-list">
         {% for event in future_events %}
@@ -20,5 +20,7 @@
         </li>
         {% endfor %}
     </ul>
+    {% else %}
+    <p>No upcoming events</p>
     {% endif %}
 </section>
