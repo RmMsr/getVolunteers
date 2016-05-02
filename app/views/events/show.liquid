@@ -11,7 +11,7 @@
         {{ event.volunteers_current }} have joined.</p>
 </section>
 <section>
-    <h2>Become a volunteer</h2>
+    <h2>Become a volunteer for this event</h2>
     <form action="/{{ event.series }}/{{ event.id }}/join" method="post">
         <input type="hidden" name="authenticity_token" value="{{csrf_token}}"/>
         <label for="assignment_name">Name:</label>

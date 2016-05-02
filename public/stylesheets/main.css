@@ -33,6 +33,13 @@ a.section:hover {
     color: #3976a8;
 }
 
+blockquote {
+    background-color: #eeeeee;
+    border-left: 0.3em solid #dc8a6f;
+    padding: 0.5em 1.5em;
+    overflow-x: auto;;
+}
+
 /* Page header */
 
 #page-head {

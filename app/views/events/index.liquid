@@ -13,7 +13,7 @@
                     </div>
                     <div class="badge">
                         <img alt="Volunteer status"
-                             src="/{{ event.series }}/{{ event.id }}/status.svg">
+                             src="/{{ event.series }}/{{ event.id }}/status.svg"/>
                     </div>
                 </div>
             </a>
@@ -23,4 +23,19 @@
     {% else %}
     <p>No upcoming events</p>
     {% endif %}
+</section>
+<section>
+    {% capture image_tag %}
+    <img alt="{{ series.name}} volunteer status"
+         src="{{ next_event_url }}/status.svg"/>
+    {% endcapture %}
+    <h2>How to embed</h2>
+    <p>You can insert an image representing the status of the upcoming event
+        anywhere like this:</p>
+    <blockquote><code>{{ image_tag | escape }}</code></blockquote>
+    <p>It will look like this:</p>
+    <p>{{ image_tag }}</p>
+    You can link to to the upcoming event of this series:
+    <blockquote><a href="{{ next_event_url }}">{{ next_event_url }}</a>
+    </blockquote>
 </section>
