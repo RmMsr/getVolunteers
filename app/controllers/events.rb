@@ -10,12 +10,12 @@ GetVolunteers::App.controllers :events, map: ':series_slug' do
   end
 
   get :show, map: ':event_id' do
-    not_found unless series
-    not_found unless event
+    not_found unless series && event
 
     values = {
         series: SeriesDrop.new(series),
-        event: EventDrop.new(event)
+        event: EventDrop.new(event),
+        csrf_token: csrf_token
     }
     render 'show', layout: true, locals: values
   end

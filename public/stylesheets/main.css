@@ -56,6 +56,11 @@ main section {
     margin: 7% 1rem;
 }
 
+.flash-success {
+    padding: 1rem;
+    background-color: lightgreen;
+}
+
 /* Events */
 
 .event-list li a {

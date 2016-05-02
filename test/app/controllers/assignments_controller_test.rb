@@ -2,10 +2,10 @@ require File.expand_path(File.dirname(__FILE__) + '/../../test_config.rb')
 
 describe 'Assignments Controller' do
   before do
-    @series = Series.create(slug: 'some-series')
-    @event = Event.create(
+    @series = Series.create(name: 'A event', slug: 'some-series')
+    @event  = Event.create(
         series: @series.slug,
-        start: Time.now,
+        start:  Time.now,
         finish: Time.now)
   end
 
@@ -56,6 +56,30 @@ describe 'Assignments Controller' do
       Event.create(series: 'a_series', start: Time.now, finish: Time.now + 10)
       get "/#{@series.slug}/next/status.png"
       last_response.status.must_equal 307
+    end
+  end
+
+  describe 'join' do
+    before do
+      env 'rack.session', csrf: 'secret_token'
+    end
+
+    it 'receives form to join' do
+      post "/#{@series.slug}/#{@event.id}/join",
+           assignment:         {name: 'Some User', email: 'user@example.org'},
+           authenticity_token: 'secret_token'
+
+      last_response.status.must_equal 302
+      last_response.location.must_equal(
+          "http://#{last_request.host}/#{@series.slug}/#{@event.id}")
+    end
+
+    it 'increases mentor count' do
+      @event.volunteers_current.must_equal 0
+      post "/#{@series.slug}/#{@event.id}/join",
+           assignment:         {name: 'Other User', email: 'user@example.org'},
+           authenticity_token: 'secret_token'
+      @event.reload.volunteers_current.must_equal 1
     end
   end
 end

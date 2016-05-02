@@ -10,3 +10,14 @@
     <p>Wee need at least {{ event.volunteers_goal }} volunteers. Currently
         {{ event.volunteers_current }} have joined.</p>
 </section>
+<section>
+    <h2>Become a volunteer</h2>
+    <form action="/{{ event.series }}/{{ event.id }}/join" method="post">
+        <input type="hidden" name="authenticity_token" value="{{csrf_token}}"/>
+        <label for="assignment_name">Name:</label>
+        <input id="assignment_name" name="assignment[name]"/>
+        <label for="assignment_email">Email:</label>
+        <input id="assignment_email" name="assignment[email]"/>
+        <input type="submit"/>
+    </form>
+</section>
