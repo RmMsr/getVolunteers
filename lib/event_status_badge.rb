@@ -8,11 +8,13 @@ class EventStatusBadge
   def shields_url(format)
     fail ArgumentError, 'Unknown format' unless %w{png svg}.include? format
 
-    url = 'https://img.shields.io/badge/Mentors-'
-    if @event.volunteers_reached?
-      url += 'found-green'
+    url = 'https://img.shields.io/badge/'
+    if @event && @event.volunteers_reached?
+      url += 'Mentors-found-green'
+    elsif @event
+      url += 'Mentors-needed-red'
     else
-      url += 'needed-red'
+      url += 'No-event-grey'
     end
     "#{url}.#{format}"
   end

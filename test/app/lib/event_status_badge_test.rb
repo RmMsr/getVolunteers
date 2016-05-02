@@ -23,5 +23,10 @@ describe EventStatusBadge do
       badge = EventStatusBadge.new(@event)
       badge.shields_url('png').must_match %r{/Mentors-found-green.png$}
     end
+
+    it 'generates no event badge url' do
+      badge = EventStatusBadge.new(nil)
+      badge.shields_url('png').must_match %r{/No-event-grey.png$}
+    end
   end
 end

@@ -37,11 +37,6 @@ describe 'Assignments Controller' do
       last_response.must_be :not_found?
     end
 
-    it 'responds with not found for incorrect event' do
-      get "/#{@series.slug}/9999/status.svg"
-      last_response.must_be :not_found?
-    end
-
     it 'redirects to shields.io badge url for png' do
       badge = Minitest::Mock.new
       badge.expect :shields_url, 'http://example.org', ['png']
@@ -55,6 +50,11 @@ describe 'Assignments Controller' do
     it 'returns the closest next event via id next' do
       Event.create(series: 'a_series', start: Time.now, finish: Time.now + 10)
       get "/#{@series.slug}/next/status.png"
+      last_response.status.must_equal 307
+    end
+
+    it 'redirects to shields.io badge url for incorrect event' do
+      get "/#{@series.slug}/9999/status.svg"
       last_response.status.must_equal 307
     end
   end
