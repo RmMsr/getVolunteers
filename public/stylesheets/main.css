@@ -63,9 +63,16 @@ main section {
     margin: 7% 1rem;
 }
 
-.flash-success {
+#flash p {
     padding: 1rem;
+}
+
+#flash .flash-success {
     background-color: lightgreen;
+}
+
+#flash .flash-error {
+    background-color: lightpink;
 }
 
 /* Events */

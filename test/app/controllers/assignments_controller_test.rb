@@ -77,9 +77,19 @@ describe 'Assignments Controller' do
     it 'increases mentor count' do
       @event.volunteers_current.must_equal 0
       post "/#{@series.slug}/#{@event.id}/join",
-           assignment:         {name: 'Other User', email: 'user@example.org'},
+           assignment:         { name: 'Other User',
+                                 email: 'user@example.org' },
            authenticity_token: 'secret_token'
       @event.reload.volunteers_current.must_equal 1
+    end
+
+    it 'rejects missing data' do
+      post "/#{@series.slug}/#{@event.id}/join",
+           authenticity_token: 'secret_token'
+
+      last_response.status.must_equal 302
+      follow_redirect!
+      last_response.body.must_match 'Submission incomplete'
     end
   end
 end

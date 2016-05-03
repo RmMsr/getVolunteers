@@ -10,8 +10,12 @@
 <body>
 <header id="page-head"><a href="/">get Volunteers</a></header>
 <main>
-  <% flash.each do |key, message| %>
-      <p class="flash-<%= key %>"><%= message %></p>
+  <% if flash.any? %>
+      <mark id="flash">
+        <% flash.each do |key, message| %>
+            <p class="flash-<%= key %>"><%= message %></p>
+        <% end %>
+      </mark>
   <% end %>
   <%= yield.html_safe %>
 </main>
