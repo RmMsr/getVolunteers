@@ -17,14 +17,18 @@ image a new site will open where the user can sign up as new volunteer.
 State
 -----
 
-Minimal functionality is implemented. Users can not yet sign up as volunteers.
-For now the Admins needs to manually update the volunteer count.
+Basic functionality is implemented. There are some limitations:
+
+ - A sign up for an event directly increases the volunteer counter. There is no 
+   required email confirmation yet.
+ - Only the administrator can remove volunteers from an event.
+ - The event status image will always call the volunteer a 'mentor'.
 
 Demo
 ----
 
 The latest version is available on 
-[volunteers.gotocloud.net](http://volunteers.gotocloud.net/test).
+[getvolunteers.net](http://getvolunteers.net/test).
 
 Setup
 -----
@@ -51,4 +55,4 @@ docker container and data will be lost once the container removed.
 License
 -------
 
-This is free and open software. See unlicense.org for details.
+This is free and open software. See [unlicense.org](http://unlicense.org/) for details.
