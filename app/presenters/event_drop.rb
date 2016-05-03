@@ -29,6 +29,10 @@ class EventDrop < Liquid::Drop
     distance_of_time_in_words(@event.start, @event.finish)
   end
 
+  def series
+    SeriesDrop.new @event.series
+  end
+
   def volunteers_goal
     @event.volunteers_goal
   end

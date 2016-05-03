@@ -2,11 +2,13 @@ require File.expand_path(File.dirname(__FILE__) + '/../../test_config.rb')
 
 describe EventDrop do
   before do
+    Series.create(slug: 'a-series')
     @event = Event.new(
-        start: Time.new(2000, 1, 1, 6, 30),
-        finish: Time.new(2000, 1, 1, 8, 30)
+        series_slug: 'a-series',
+        start:       Time.new(2000, 1, 1, 6, 30),
+        finish:      Time.new(2000, 1, 1, 8, 30)
     )
-    @drop = EventDrop.new(@event)
+    @drop  = EventDrop.new(@event)
   end
 
   it 'has Liquid Drop interface' do
@@ -21,6 +23,10 @@ describe EventDrop do
     drop.duration_in_words.must_equal 'less than a minute'
     drop.volunteers_goal.must_be_nil
     drop.volunteers_current.must_equal 0
+  end
+
+  it 'exposes its series drop' do
+    @drop.series.must_be_instance_of SeriesDrop
   end
 
   it 'exposes start time' do
@@ -38,7 +44,6 @@ describe EventDrop do
   it 'exposes finish time' do
     @drop.finish.must_equal 'January 01, 2000 08:30'
   end
-
 
   it 'exposes duration in words' do
     @drop.duration_in_words.must_equal 'about 2 hours'

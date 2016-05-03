@@ -1,3 +1,26 @@
+{% if future_events.size > 0 %}
+<section>
+    <h1>Upcoming events</h1>
+    <ul class="event-list">
+        {% for event in future_events %}
+        <li>
+            <a href="/{{ event.series.slug }}/{{ event.id }}" class="section">
+                <div class="event-info">
+                    <div class="label">
+                        {{ event.series.name }}
+                        {{ event.start_short }}
+                    </div>
+                    <div class="badge">
+                        <img alt="Volunteer status"
+                             src="/{{ event.series.slug }}/{{ event.id }}/status.svg"/>
+                    </div>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
 <section>
     <h1>About</h1>
     <p>"get Volunteers" shows every visitor of your website if you need
@@ -6,10 +29,12 @@
 <section>
     <h2>Open Source</h2>
     <p>All source code is available on
-        <a href="https://github.com/RmMsr/get-volunteers" target="_blank">GitHub</a>.</p>
+        <a href="https://github.com/RmMsr/get-volunteers"
+           target="_blank">GitHub</a>.</p>
 </section>
 <section>
     <h2>Credits</h2>
-    <p>Thanks to <a href="http://shields.io/" target="_blank">Shields.io</a> for their free
-    badge generating service.</p>
+    <p>Thanks to <a href="http://shields.io/" target="_blank">Shields.io</a> for
+        their free
+        badge generating service.</p>
 </section>

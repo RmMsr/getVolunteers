@@ -10,7 +10,8 @@ module GetVolunteers
 
     # Root page
     get '/' do
-      render 'home', layout: true
+      events = Event.future.all(limit: 10).map { |e| EventDrop.new(e) }
+      render 'home', { layout: true }, future_events: events
     end
 
     ##
