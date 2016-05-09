@@ -16,12 +16,12 @@ GetVolunteers::App.controllers :assignments, map: ':series_slug/:event_id/' do
       event.save
       redirect url_for(:events, :show,
                        event_id:    event.id,
-                       series_slug: event.series),
+                       series_slug: event.series_slug),
                success: 'Thanks. We counted you as a volunteer.'
     else
       redirect url_for(:events, :show,
                        event_id:    event.id,
-                       series_slug: event.series),
+                       series_slug: event.series_slug),
                error: 'Submission incomplete. Please submit again.'
     end
   end

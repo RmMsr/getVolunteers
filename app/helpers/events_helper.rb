@@ -11,11 +11,11 @@ module GetVolunteers
       # Loads the event specified in the request URL as /:series_slug/:event_id
       def event
         @_event ||= if params[:event_id] == 'next'
-                      Event.all(series: params[:series_slug]).next
+                      Event.all(series_slug: params[:series_slug]).next
                     else
                       Event.first(
-                          series: params[:series_slug],
-                          id: params[:event_id])
+                          series_slug: params[:series_slug],
+                          id:          params[:event_id])
                     end
       end
     end

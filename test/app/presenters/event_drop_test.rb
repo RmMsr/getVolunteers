@@ -19,7 +19,6 @@ describe EventDrop do
     drop.start.must_be_nil
     drop.start_short.must_be_nil
     drop.duration_in_words.must_equal 'less than a minute'
-    drop.series.must_be_nil
     drop.volunteers_goal.must_be_nil
     drop.volunteers_current.must_equal 0
   end
@@ -47,10 +46,6 @@ describe EventDrop do
 
   it 'exposes id' do
     @drop.id.must_equal @event.id
-  end
-
-  it 'exposes series slug' do
-    @drop.series.must_equal @event.series
   end
 
   it 'exposes volunteers goal' do

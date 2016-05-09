@@ -39,7 +39,7 @@
                 <th class=header> <%= mat(:event, :id) %></th>
                 <th class=header> <%= mat(:event, :start) %></th>
                 <th class=header> <%= mat(:event, :finish) %></th>
-                <th class=header> <%= mat(:event, :series) %></th>
+                <th class=header> <%= mat(:event, :series_slug) %></th>
                 <th class=header> <%= mat(:event, :volunteers_goal) %></th>
                 <th class=header> <%= mat(:event, :volunteers_current) %></th>
                 <th class="header list-row-action-header"></th>
@@ -55,7 +55,7 @@
           <td class=list-column> <%= event.id %> </td>
           <td class=list-column> <%= event.start %> </td>
           <td class=list-column> <%= event.finish %> </td>
-          <td class=list-column> <%= event.series %> </td>
+          <td class=list-column> <%= event.series_slug %> </td>
           <td class=list-column> <%= event.volunteers_goal %> </td>
           <td class=list-column> <%= event.volunteers_current %> </td>
           <td class="list-column list-row-action">

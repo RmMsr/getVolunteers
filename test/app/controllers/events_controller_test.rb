@@ -16,7 +16,7 @@ describe 'Events Controller' do
 
     it 'lists future events' do
       Series.create(slug: 'a-series', name: 'A Series')
-      Event.create(series: 'a-series',
+      Event.create(series_slug: 'a-series',
                    start:  Time.new(2010, 1, 1),
                    finish: Time.now + 10)
       get '/a-series'
@@ -29,7 +29,7 @@ describe 'Events Controller' do
     it 'displays event information' do
       Series.create(slug: 'a-series', name: 'A Series')
       event = Event.create(
-          series: 'a-series',
+          series_slug: 'a-series',
           start:  Time.new(2000, 1, 1, 12, 45),
           finish: Time.new(2000, 1, 1, 16, 45))
       get "/a-series/#{event.id}"
@@ -40,7 +40,7 @@ describe 'Events Controller' do
 
     it 'returns file not found for unknown series slug' do
       Series.create(slug: 'a-slug')
-      event = Event.new(series: 'a-slug')
+      event = Event.new(series_slug: 'a-slug')
       get "/unknown_series/#{event.id}"
       last_response.status.must_equal 404
     end

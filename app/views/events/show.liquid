@@ -5,14 +5,14 @@
     <p>Start: {{ event.start }}<br/>Finish: {{ event.finish }}</p>
     <div class="badge">
         <img alt="Volunteer status"
-             src="/{{ event.series }}/{{ event.id }}/status.svg">
+             src="/{{ series.slug }}/{{ event.id }}/status.svg">
     </div>
     <p>Wee need at least {{ event.volunteers_goal }} volunteers. Currently
         {{ event.volunteers_current }} have joined.</p>
 </section>
 <section>
     <h2>Become a volunteer for this event</h2>
-    <form action="/{{ event.series }}/{{ event.id }}/join" method="post">
+    <form action="/{{ series.slug }}/{{ event.id }}/join" method="post">
         <input type="hidden" name="authenticity_token" value="{{csrf_token}}"/>
         <label for="assignment_name">Name:</label>
         <input id="assignment_name" name="assignment[name]"/>

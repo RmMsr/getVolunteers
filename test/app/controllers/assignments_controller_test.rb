@@ -4,7 +4,7 @@ describe 'Assignments Controller' do
   before do
     @series = Series.create(name: 'A event', slug: 'some-series')
     @event  = Event.create(
-        series: @series.slug,
+        series_slug: @series.slug,
         start:  Time.now,
         finish: Time.now)
   end
@@ -48,7 +48,7 @@ describe 'Assignments Controller' do
     end
 
     it 'returns the closest next event via id next' do
-      Event.create(series: 'a_series', start: Time.now, finish: Time.now + 10)
+      Event.create(series_slug: 'a_series', start: Time.now, finish: Time.now + 10)
       get "/#{@series.slug}/next/status.png"
       last_response.status.must_equal 307
     end

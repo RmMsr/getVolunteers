@@ -20,6 +20,7 @@ gem 'dm-migrations'
 gem 'dm-constraints'
 gem 'dm-aggregates'
 gem 'dm-types'
+gem 'dm-transactions'
 gem 'dm-core'
 
 # Padrino Stable Gem
