@@ -8,6 +8,8 @@ class Event
   property :volunteers_goal, Integer
   property :volunteers_current, Integer, default: 0
 
+  belongs_to :series, child_key: :series_slug, parent_key: :slug
+
   def volunteers_reached?
     return true if volunteers_goal.nil?
     volunteers_current >= volunteers_goal

@@ -11,6 +11,11 @@ describe 'Event Model' do
     event.volunteers_goal.must_equal nil
   end
 
+  it 'belongs to Series' do
+    series = Series.create(slug: 'a-slug')
+    Event.new(series_slug: 'a-slug').series.must_equal series
+  end
+
   describe 'volunteers_reached?' do
     it 'returns true when current equals goal' do
       event = Event.new(volunteers_current: 2, volunteers_goal: 2)
