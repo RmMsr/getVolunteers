@@ -40,4 +40,8 @@ class EventDrop < Liquid::Drop
   def volunteers_current
     @event.volunteers_current
   end
+
+  def volunteer_names
+    @event.volunteers.map(&:name)
+  end
 end

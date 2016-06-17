@@ -12,7 +12,8 @@ GetVolunteers::App.controllers :assignments, map: ':series_slug/:event_id/' do
     if params[:assignment] &&
         params[:assignment][:name].present? &&
         params[:assignment][:email].present?
-      event.volunteers_current += 1
+      event.add_volunteer params[:assignment][:name],
+                          params[:assignment][:email]
       event.save
       redirect url_for(:events, :show,
                        event_id:    event.id,

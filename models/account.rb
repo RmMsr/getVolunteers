@@ -54,7 +54,7 @@ class Account
   private
 
   def password_required
-    crypted_password.blank? || password.present?
+    password.present? || password_confirmation.present?
   end
 
   def encrypt_password

@@ -9,6 +9,15 @@
     </div>
     <p>Wee need at least {{ event.volunteers_goal }} volunteers. Currently
         {{ event.volunteers_current }} have joined.</p>
+    {% if event.volunteer_names.size > 0 %}
+    <p>Already signed up volunteers:</p>
+    <ul>
+        {% for name in event.volunteer_names %}
+        <li>{{ name }}</li>
+        {% endfor %}
+    </ul>
+    </p>
+    {% endif %}
 </section>
 <section>
     <h2>Become a volunteer for this event</h2>
