@@ -59,16 +59,7 @@ module GetVolunteers
     #   end
     #
 
-    ##
-    # You can manage errors like:
-    #
-    #   error 404 do
-    #     render 'errors/404'
-    #   end
-    #
-    #   error 500 do
-    #     render 'errors/500'
-    #   end
-    #
+    error(404) { render 'errors/404', layout: true }
+    error(500) { render 'errors/500', layout: true }
   end
 end
